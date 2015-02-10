@@ -1,0 +1,43 @@
+{% extends 'base.html' %}
+
+{% block header %}
+<h1>Materials</h1>
+{% endblock %}	
+
+{% block content %}
+
+<form action="/create/" method="post">{% csrf_token %}
+    
+    <ul data-role="listview" data-inset="true" data-theme="a" >
+   
+        {{ form.as_ul }}
+
+        <li class="ui-body ui-body-a" >
+            <fieldset class="ui-grid-a" data-theme="b">
+                <div class="ui-block-a"><button type="reset" class="ui-btn ui-corner-all ui-btn-b" value="reset">Cancel</button></div>
+                <div class="ui-block-b"><button type="submit" name="submit" class="ui-btn ui-corner-all ui-btn-b" value="Create Material">Add</button></div>
+            </fieldset>
+        </li>
+
+    </ul>
+
+
+    <!--
+    <input type="submit" name="submit" value="Create Material">
+    -->    
+    
+</form>
+
+<script>
+$('li').addClass('ui-field-contain')
+    .attr('data-theme', 'b');
+$('[name="date"]')
+    .attr('data-role', "datebox")
+    .attr('data-options', '{"mode": "calbox"}');
+</script>
+
+{% endblock %}
+
+{% block footer %}
+<h4>{{ company }}</h4>
+{% endblock %}	

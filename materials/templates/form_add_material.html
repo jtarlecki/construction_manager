@@ -1,0 +1,114 @@
+<html lang="en">
+<body>
+
+
+<form>
+    
+    {% csrf_token %}    
+
+    <ul data-role="listview" data-inset="true" data-split-icon="plus">    
+        
+        <li class="ui-field-contain">
+            
+            <a>             
+            <label for="selectjob" class="select">Job</label>          
+            <select name="selectjob" id="selectjob">
+                <option selected disabled hidden value=''></option>                
+                {% for job in jobs %}                
+                <option value="job{{ job.id }}">{{ job.name }}</option>
+                {% endfor %}
+            </select>       
+            </a>            
+
+            <a href="#addJob" data-rel="popup" data-position-to="window" data-transition="pop"></a>           
+            
+        </li>
+
+        <li class="ui-field-contain">
+            
+            <a>            
+            <label for="selectvendor" class="select">Vendor</label>
+            <select name="selectvendor" id="selectvendor">
+                <option selected disabled hidden value=''></option>                
+                {% for vendor in vendors %}                
+                <option value="vendor{{ vendor.id }}">{{ vendor.name }}</option>
+                {% endfor %}
+            </select>
+            </a>
+            
+            <a href="#" data-rel="popup" data-position-to="window" data-transition="pop"></a>
+            
+        </li>
+
+        <li class="ui-field-contain">
+            <label for="name2">Price</label>
+            <input type="text" name="name2" id="name2" value="" data-clear-btn="true">
+        </li>
+
+        <li class="ui-field-contain">
+            
+            <a>            
+            <label for="selectjobphase" class="select">Job Phase</label>
+            <select name="selectjobphase" id="selectjobphase">
+                <option selected disabled hidden value=''></option>                
+                {% for jobphase in jobphases %}                
+                <option value="jobphase{{ jobphase.id }}">{{ jobphase.jobphase }}</option>
+                {% endfor %}
+            </select>
+            </a>
+            
+            <a href="#" data-rel="popup" data-position-to="window" data-transition="pop"></a>
+        
+        </li>           
+
+        <li class="ui-field-contain">
+            <label for="textarea2">Comments</label>
+            <textarea cols="40" rows="8" name="textarea2" id="textarea2"></textarea>
+        </li>
+
+        <li class="ui-field-contain">            
+            <label for="datebox">Date</label>        
+            <input name="datebox" type="text" data-role="datebox" data-options='{"mode":"calbox"}'>
+        </li>
+        
+        <li class="ui-body ui-body-b">
+            <fieldset class="ui-grid-a">
+                <div class="ui-block-a"><button type="submit" class="ui-btn ui-corner-all ui-btn-a">Cancel</button></div>
+                <div class="ui-block-b"><button type="submit" class="ui-btn ui-corner-all ui-btn-a" value="add_material">Add</button></div>
+            </fieldset>
+        </li>
+
+    </ul>
+
+</form>
+
+	<div data-role="popup" id="addJob" data-dialog="true">
+		<div data-role="main" class="ui-content">
+		    <form action="/create_job/" method="post">{% csrf_token %}
+			
+			<ul data-role="listview" data-inset="true" data-theme="a" >
+		       
+			    {{ form.as_ul }}
+		    
+			    <li class="ui-body ui-body-a" >
+				<fieldset class="ui-grid-a" data-theme="b">
+				    <div class="ui-block-a"><button type="reset" class="ui-btn ui-corner-all ui-btn-b" value="reset">Cancel</button></div>
+				    <div class="ui-block-b"><button type="submit" name="submit" class="ui-btn ui-corner-all ui-btn-b" value="Create J">Add</button></div>
+				</fieldset>
+			    </li>
+		    
+			</ul>
+
+
+			<!--
+			<input type="submit" name="submit" value="Create Material">
+			-->    
+			
+		    </form>
+				
+			
+		</div>
+	</div> 
+
+</body>
+</html>

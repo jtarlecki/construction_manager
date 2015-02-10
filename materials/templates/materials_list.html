@@ -1,0 +1,19 @@
+{% extends "base.html" %}
+
+{% block header %}
+<h1>Materials</h1>
+{% endblock %}	
+
+{% block content %}
+
+	<ul data-role="listview" data-inset="true" data-theme="b">    
+	{% for m in materials %}
+	    <li data-role="fieldcontain"><a href="#">{{m.date}} {{m.job}} {{m.vendor}} {{m.amount}} {{m.createduser}}</a></li>
+	{% endfor %}
+	</ul>
+			
+{% endblock %}
+
+{% block footer %}
+<h4>{{ company }}</h4>
+{% endblock %}	

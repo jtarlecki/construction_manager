@@ -1,0 +1,13 @@
+job list query
+    job name, total transactions, total money
+    >>> goes to list of transactions
+
+
+add materials form
+    allows user to add a transaction
+    
+login
+
+template out the base html doc, seperate from content
+
+vary headers

@@ -1,0 +1,23 @@
+{% extends "base.html" %}
+
+{% block header %}
+<h1>Materials</h1>
+{% endblock %}	
+
+{% block content %}
+
+	<p>Welcome {{ name }}!</p>
+	<p>What would you like to do?</p>
+	
+	<ul data-role="listview" data-inset="true" data-theme="b">    
+	    <li data-role="fieldcontain"><a href="mat">Add Materials</a></li>
+	    <li data-role="fieldcontain"><a href="#">View Jobs</a></li>
+	    <li data-role="fieldcontain"><a href="#">Monthly Reports</a></li>
+	<ul>	
+		
+{% endblock %}
+
+{% block footer %}
+<h4>{{ company }}</h4>
+{% endblock %}	
+
