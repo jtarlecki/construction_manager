@@ -1,6 +1,10 @@
-<html lang="en">
-<body>
+{% extends 'base.html' %}
 
+{% block header %}
+<h1>Materials</h1>
+{% endblock %}	
+
+{% block content %}
 
 <form action="/create_job/" method="post">{% csrf_token %}
     
@@ -32,5 +36,8 @@ $('[name="date"]')
     .attr('data-options', '{"mode": "calbox"}');
 </script>
 
-</body>
-</html>
+{% endblock %}
+
+{% block footer %}
+<h4>{{ company }}</h4>
+{% endblock %}	

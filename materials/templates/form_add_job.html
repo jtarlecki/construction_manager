@@ -1,0 +1,24 @@
+<html>
+<body>
+
+	    
+    <form action="/form_add_job/" method="post">{% csrf_token %}
+	
+	<ul data-role="listview" data-inset="true" data-theme="a" >
+       
+	    {{ form.as_ul }}
+    
+	    <li class="ui-body ui-body-a" >
+		<fieldset class="ui-grid-a" data-theme="b">
+		    <div class="ui-block-a"><button type="reset" class="ui-btn ui-corner-all ui-btn-b" value="reset">Cancel</button></div>
+		    <div class="ui-block-b"><button type="submit" name="submit" class="ui-btn ui-corner-all ui-btn-b" value="Create J">Add</button></div>
+		</fieldset>
+	    </li>
+    
+	</ul>
+    
+    </form>
+			
+
+</body>
+</html>

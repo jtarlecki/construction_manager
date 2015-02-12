@@ -7,6 +7,15 @@
 {% block content %}
 
 {% include "form_add_material.html" %}
+
+<div data-role="popup" id="addJob" data-dialog="true">
+	<div data-role="main" class="ui-content">
+		<h3>Paint Settings</h3>
+
+		{% include "create_job.html" %}
+		
+	</div>
+</div>
 			
 {% endblock %}
 

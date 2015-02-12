@@ -83,7 +83,7 @@ def create_job(request):
 	return render_to_response('create_job.html', args)	
 		
 def create(request):
-	create_job()
+	
 	if request.POST:
 		form = MaterialsForm(request.POST)
 		if form.is_valid():
